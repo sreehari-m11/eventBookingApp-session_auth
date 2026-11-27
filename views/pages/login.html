@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    </style>
+    <title>Register</title>
+</head>
+
+<body class="font-[Inter]">
+
+    <div class="w-full h-screen flex">
+        <div class="w-1/2 bg-[#FAF6F0] flex justify-center h-screen">
+
+            <div class="flex flex-col gap-8 py-8">
+
+                <div>
+                    <p class="font-[Bricolage_Grotesque] text-2xl text-[#382bcf] font-extrabold">ManageEvent</p>
+                </div>
+
+                <div>
+                    <h1 class="text-6xl font-bold font-[Bricolage_Grotesque]">Welcome back</h1>
+                    <p>Log in to see and manage your event bookings.</p>
+                </div>
+
+                <form action="/login" method="POST" class="flex flex-col gap-4" id="loginForm">
+                    <div class="flex flex-col">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="alexferguson@gmail.com" class="
+                        border rounded-lg px-4 py-2">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="fullname">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Enter your password" class="
+                        border rounded-lg px-4 py-2">
+                    </div>
+                    <button type="submit" class="bg-[#4033D6] text-white font-semibold py-3 rounded-lg hover:cursor-pointer
+                    hover:bg-[#382bcf]">Log in</button>
+                    <p id="message" class="text-xl font-bold text-red-500"></p>
+                </form>
+
+                <p>New here? <span><a href="../index.html" class="text-[#4033D6] underline font-semibold">Create an
+                            account</a></span>
+                </p>
+
+            </div>
+
+        </div>
+        <div class="w-1/2 bg-[#4033D6] h-screen">
+
+        </div>
+    </div>
+
+    <script src="../javascript/login.js"></script>
+</body>
+
+</html>
