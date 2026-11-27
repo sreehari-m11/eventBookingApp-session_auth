@@ -45,10 +45,9 @@ const login = async (req, res) => {
         }
 
         if (password === user.password) {
-            req.session.username = user.name;
+            req.session.userId = user._id;
             res.json({
                 message: "Login Successful",
-                user
             })
         } else {
             res.status(401).json({
@@ -78,4 +77,27 @@ const logout = (req, res) => {
     })
 }
 
-export { login, register, logout }
+const getDashboard = async (req, res) => {
+    const id = req.session.userId;
+
+    try {
+        const user = await User.findById(id).populate('bookings');
+
+        if (!user) {
+            return res.status(401).json({
+                message: "User not found"
+            })
+        }
+        res.status(200).json({
+            name: user.name,
+            email: user.email,
+            bookings: user.bookings
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: "Failed fetching details"
+        })
+    }
+}
+
+export { login, register, logout, getDashboard }

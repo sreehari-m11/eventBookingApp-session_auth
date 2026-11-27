@@ -20,3 +20,22 @@ logoutBtn.addEventListener('click', async () => {
         })
     }
 })
+
+async function getBookings() {
+    let countStr = '';
+    let bookingTableStr = '';
+
+    const userNav = document.getElementById('userNav');
+
+    try {
+        const response = await fetch('/dashboard');
+        const user = await response.json()
+        if (response.ok) {
+            userNav.innerText = `${user.name}`
+        }
+    } catch (err) {
+        message.innerText = `${err.message}`
+    }
+}
+
+getBookings();

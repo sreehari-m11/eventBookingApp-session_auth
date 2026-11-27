@@ -23,7 +23,7 @@ loginForm.addEventListener('submit', async (e) => {
         const data = await response.json();
 
         if (response.ok) {
-            window.location.href = '../pages/dashboard.html';
+            window.location.href = `../pages/dashboard.html`;
         } else {
             message.innerText = `${data.message}`;
         }

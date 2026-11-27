@@ -17,7 +17,7 @@
 
             <p class="font-[Bricolage_Grotesque] text-lg font-extrabold text-[#4033D6]">ManageEvent</p>
             <div class="flex gap-5 items-center">
-                <p class="text-sm">Signed in as <span class="font-bold">Alex Ferguson</span></p>
+                <p class="text-sm">Signed in as <span class="font-bold" id="userNav"></span></p>
                 <button
                     class="text-sm border-2 border-[#E6DFD3] py-1 px-4 rounded-lg hover:cursor-pointer hover:bg-[#ECEAFD] flex items-center justify-around"
                     id="logoutBtn"><span><img src="../assets/logout.svg" alt="logout.svg"
@@ -28,7 +28,45 @@
     </header>
     <main>
         <div>
-            <p id="message" class="text-xl font-bold text-red-500"></p>
+            <!-- <p id="message" class="text-xl font-bold text-red-500"></p> -->
+        </div>
+
+        <div class="flex flex-col gap-10">
+            <div class="flex mx-auto lg:min-w-6xl max-w-8xl justify-between items-end mt-10">
+                <div>
+                    <h1 class="font-[Bricolage_Grotesque] text-5xl font-bold">Your Bookings</h1>
+                    <p class="text-[#5F5C72]">Add, update and cancel your event tickets in one place</p>
+                </div>
+                <div>
+                    <button
+                        class="flex items-center gap-1 bg-[#4033D6] text-white px-4 py-2 rounded-lg hover:cursor-pointer hover:bg-[#382bcf]"><img
+                            src="../assets/add.svg" alt="add.svg" class="size-5 text-white">New
+                        booking</button>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col gap-4 lg:min-w-6xl max-w-8xl mx-auto">
+                <div class="flex justify-between">
+                    <div class="bg-white w-1/4 p-4 rounded-2xl">
+                        <p class="text-[#5F5C72]">Total bookings</p>
+                        <p class="text-3xl font-bold font-[Bricolage_Grotesque]">5</p>
+                    </div>
+                    <div class="bg-white w-1/4 p-4 rounded-2xl">
+                        <p class="text-[#5F5C72]">Confirmed</p>
+                        <p class="text-3xl font-bold font-[Bricolage_Grotesque]">3</p>
+                    </div>
+                    <div class="bg-white w-1/4 p-4 rounded-2xl">
+                        <p class="text-[#5F5C72]">Pending</p>
+                        <p class="text-3xl font-bold font-[Bricolage_Grotesque]">1</p>
+                    </div>
+                </div>
+                <div class="bg-white lg:min-w-6xl max-w-8xl p-4 rounded-2xl">
+                    <p class="text-[#5F5C72]">Cancelled</p>
+                    <p class="text-3xl font-bold font-[Bricolage_Grotesque]">1</p>
+                </div>
+            </div>
+
         </div>
     </main>
 
