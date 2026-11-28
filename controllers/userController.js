@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import User from "../models/User.js";
+import Booking from "../models/Booking.js";
 
 
 
@@ -100,4 +101,35 @@ const getDashboard = async (req, res) => {
     }
 }
 
-export { login, register, logout, getDashboard }
+const addBooking = async (req, res) => {
+    const { eventName, eventDate, location, ticketCount, status } = req.body;
+    const user = req.session.userId;
+
+    const newBooking = {
+        eventName,
+        eventDate,
+        location,
+        ticketCount,
+        status,
+        user
+    }
+
+    try {
+        const booking = new Booking(newBooking);
+        await booking.save()
+
+        const userDetails = await User.findByIdAndUpdate(user);
+        userDetails.bookings.push(booking);
+        await userDetails.save();
+
+        res.status(201).json({
+            message: "Booking created successfuly"
+        })
+    } catch (err) {
+        res.status(500).json({
+            message: err.message
+        })
+    }
+}
+
+export { login, register, logout, getDashboard, addBooking }

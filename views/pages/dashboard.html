@@ -31,6 +31,14 @@
             <!-- <p id="message" class="text-xl font-bold text-red-500"></p> -->
         </div>
 
+        <div id="successMsgSection"
+            class="flex justify-between items-center max-w-xl m-auto px-4 py-5 mt-2 bg-green-500/20 rounded-2xl border border-green-400"
+            style="display: none;">
+            <p id="successMessage" class="text-normal"></p>
+            <button id="closeMsgBtn"
+                class="hover:bg-green-500/10 hover:cursor-pointer font-extrabold size-8 rounded-full">X</button>
+        </div>
+
         <div class="flex flex-col gap-10">
             <div class="flex mx-auto lg:min-w-6xl max-w-8xl justify-between items-end mt-10">
                 <div>
@@ -38,13 +46,67 @@
                     <p class="text-[#5F5C72]">Add, update and cancel your event tickets in one place</p>
                 </div>
                 <div>
-                    <button
+                    <button id="openFormBtn"
                         class="flex items-center gap-1 bg-[#4033D6] text-white px-4 py-2 rounded-lg hover:cursor-pointer hover:bg-[#382bcf]"><img
                             src="../assets/add.svg" alt="add.svg" class="size-5 text-white">New
                         booking</button>
                 </div>
 
             </div>
+
+            <dialog id="booking-dialog" class="m-auto rounded-2xl py-6 px-8 backdrop:bg-[#1C1B2E]/60">
+                <div class="flex flex-col gap-10">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h2 class="font-[Bricolage_Grotesque] text-4xl lg:min-w-xl font-bold">New Booking</h2>
+                            <p class="text-[#5F5C72]">Fill in the event details below</p>
+                        </div>
+                        <div>
+                            <button id="close-dialog"
+                                class="px-6 py-2 bg-red-500 text-white rounded-lg hover:cursor-pointer hover:bg-red-600">Close</button>
+                        </div>
+                    </div>
+
+
+                    <form action="/addbooking" class="flex flex-col gap-6" id="addBookingForm">
+                        <div class="flex flex-col gap-1">
+                            <label for="eventName" class="font-medium">Event name</label>
+                            <input type="text" name="eventName" id="eventName"
+                                class="border border-[#E6DFD3] p-2 rounded-xl" placeholder="Event name">
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <label for="eventDate" class="font-medium">Event date</label>
+                            <input type="date" name="eventDate" id="eventDate"
+                                class="border border-[#E6DFD3] p-2 rounded-xl">
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <label for="tickets" class="font-medium">No of tickets</label>
+                            <input type="number" name="ticketCount" id="tickets"
+                                class="border border-[#E6DFD3] p-2 rounded-xl">
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <label for="location" class="font-medium">Event location</label>
+                            <input type="text" name="location" id="location"
+                                class="border border-[#E6DFD3] p-2 rounded-xl">
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <label for="status" class="font-medium">Booking status</label>
+                            <select name="status" id="status" class="border border-[#E6DFD3] p-2 rounded-xl">
+                                <option value="pending">Pending</option>
+                                <option value="Confirmed">Confirmed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                        <div class="flex gap-2 flex-row-reverse">
+                            <button type="submit"
+                                class="py-2 px-6 rounded-lg bg-[#4033D6] text-white hover:cursor-pointer hover:bg-[#382bcf]">Submit</button>
+                            <button id="cancel" type="button"
+                                class="border border-[#E6DFD3] py-2 px-6 rounded-lg hover:cursor-pointer hover:bg-[#ECEAFD]">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+            </dialog>
 
             <div class="flex flex-col gap-4 lg:min-w-6xl max-w-8xl mx-auto">
                 <div class="flex justify-between">
